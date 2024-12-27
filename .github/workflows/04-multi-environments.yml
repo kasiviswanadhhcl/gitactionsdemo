@@ -24,8 +24,10 @@ jobs:
         run: | 
           if [ ${{ github.ref }} = 'refs/heads/main' ]; then
             echo "Deploying to Production"
+            echo "$GITHUB_ENV"
           elif [ ${{ github.ref }} = 'refs/heads/develop' ]; then
             echo "Deploying to Staging"
+            echo "$GITHUB_ENV"
           fi
           
   
