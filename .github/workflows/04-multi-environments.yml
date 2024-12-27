@@ -15,7 +15,7 @@ jobs:
       - name: Set environment-specific variables
         run: |
           if [ ${{ github.ref }} = 'refs/heads/main' ]; then
-            echo "${{ vars.PRODUCTION_API_UR }}" >> $GITHUB_ENV
+            echo "${{ vars.PRODUCTION_API_URL }}" >> $GITHUB_ENV
           elif [ ${{ github.ref }} = 'refs/heads/develop' ]; then
             echo "${{ vars.STAGING_API_URL}}" >> $GITHUB_ENV
           fi
@@ -24,10 +24,8 @@ jobs:
         run: | 
           if [ ${{ github.ref }} = 'refs/heads/main' ]; then
             echo "Deploying to Production"
-            echo "$GITHUB_ENV"
           elif [ ${{ github.ref }} = 'refs/heads/develop' ]; then
             echo "Deploying to Staging"
-            echo "$GITHUB_ENV"
           fi
           
   
